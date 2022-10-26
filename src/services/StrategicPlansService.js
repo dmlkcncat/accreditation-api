@@ -19,6 +19,19 @@ export default class StrategicPlanService extends BaseService {
         path: 'period',
       })
   }
+  getById(where = {}) {
+    return this.model
+      .findOne(where)
+      .populate({
+        path: 'strategicGoals',
+        populate: {
+          path: 'strategic-goals',
+        },
+      })
+      .populate({
+        path: 'period',
+      })
+  }
 
   get(where = {}) {
     return this.model
@@ -35,7 +48,7 @@ export default class StrategicPlanService extends BaseService {
   }
 
   async insert(data) {
-    const periodStartYear = 2022
+    const { periodStartYear } = data
     const periods = []
     for (let i = 0; i < 4; i++) {
       periods.push(
