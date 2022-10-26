@@ -1,5 +1,6 @@
 import BaseService from './BaseService'
 import StrategicPlan from '../models/strategicPlan/StrategicPlan'
+import StrategicPeriod from '../models/strategicPlan/StrategicPeriod'
 
 export default class StrategicPlanService extends BaseService {
   constructor() {
@@ -31,5 +32,19 @@ export default class StrategicPlanService extends BaseService {
       .populate({
         path: 'period',
       })
+  }
+
+  async insert(data) {
+    const periodStartYear = 2022
+    const periods = []
+    for (let i = 0; i < 4; i++) {
+      periods.push(
+        new StrategicPeriod({
+          title: (periodStartYear + i).toString(),
+        })
+      )
+    }
+    const strategicPeriods = await StrategicPeriod.insertMany(periods)
+    return this.model({ ...data, period: strategicPeriods }).save()
   }
 }
