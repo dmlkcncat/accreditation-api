@@ -4,6 +4,8 @@ const schema = new Schema(
   {
     title: String,
     activityGoal: Number,
+    performanceIndicator: String,
+    responsible: String,
     periodGoal: [
       {
         strategicPeriod: {
