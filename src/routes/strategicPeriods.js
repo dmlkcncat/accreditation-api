@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import StrategicPlanController from '../controllers/StrategicPlansController'
+import StrategicPeriodsController from '../controllers/StrategicPeriodsController'
 
 const router = Router()
-const controller = new StrategicPlanController()
+const controller = new StrategicPeriodsController()
 
 router.get('/', controller.list)
 router.get('/:id', controller.getById)
