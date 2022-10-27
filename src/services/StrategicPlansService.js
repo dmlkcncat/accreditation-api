@@ -19,19 +19,6 @@ export default class StrategicPlanService extends BaseService {
         path: 'period',
       })
   }
-  getById(where = {}) {
-    return this.model
-      .findOne(where)
-      .populate({
-        path: 'strategicGoals',
-        populate: {
-          path: 'strategic-goals',
-        },
-      })
-      .populate({
-        path: 'period',
-      })
-  }
 
   get(where = {}) {
     return this.model
