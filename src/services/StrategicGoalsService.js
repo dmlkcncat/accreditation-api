@@ -1,5 +1,6 @@
 import BaseService from './BaseService'
 import StrategicGoal from '../models/strategicPlan/StrategicGoal'
+import StrategicPlan from '../models/strategicPlan/StrategicPlan'
 
 export default class StrategicGoalService extends BaseService {
   constructor() {
@@ -21,5 +22,18 @@ export default class StrategicGoalService extends BaseService {
         path: 'strategic-activities',
       },
     })
+  }
+
+  async insert(data) {
+    const strategicPlanId = data.strategicPlan
+
+    const existingStrategicPlan = await StrategicPlan.findById(strategicPlanId)
+
+    const goal = await this.model(data).save()
+
+    existingStrategicPlan.strategicGoals.push(goal)
+    await existingStrategicPlan.save()
+
+    return goal
   }
 }

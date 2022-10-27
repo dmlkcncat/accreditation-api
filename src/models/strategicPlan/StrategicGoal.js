@@ -3,6 +3,10 @@ import { Schema, model } from 'mongoose'
 const schema = new Schema(
   {
     title: String,
+    // strategicPlan: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'strategic-plan',
+    // },
     strategicActivities: [
       {
         type: Schema.Types.ObjectId,
