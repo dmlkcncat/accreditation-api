@@ -4,6 +4,7 @@ const schema = new Schema(
   {
     title: String,
     performanceIndicator: String,
+    performanceGoalCount: Number,
     responsible: String,
     periodGoal: [
       {
