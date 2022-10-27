@@ -3,11 +3,11 @@ import { Schema, model } from 'mongoose'
 const schema = new Schema(
   {
     title: String,
-    activityGoal: Number,
     performanceIndicator: String,
     responsible: String,
     periodGoal: [
       {
+        // Hangi yıla denk geldiği
         strategicPeriod: {
           type: Schema.Types.ObjectId,
           ref: 'strategic-periods',
