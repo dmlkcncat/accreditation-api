@@ -17,6 +17,11 @@ export default class StrategicActivitiesService extends BaseService {
     existingStrategicGoal.strategicActivities.push(activity)
     await existingStrategicGoal.save()
 
-    return activity
+    return activity.populate({
+      path: 'periodGoal',
+      populate: {
+        path: 'strategicPeriod',
+      },
+    })
   }
 }
