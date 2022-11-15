@@ -1,14 +1,13 @@
 import { Schema, model } from 'mongoose'
+import StrategicSystem from './StrategicSystem'
 //Amaç
 const schema = new Schema(
   {
     title: String,
-    period: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'strategic-periods',
-      },
-    ],
+    strategicSystem: {
+      type: Schema.Types.ObjectId,
+      ref: 'strategic-system',
+    },
     strategicGoals: [
       {
         type: Schema.Types.ObjectId,
@@ -21,5 +20,13 @@ const schema = new Schema(
     timestamps: true,
   }
 )
+
+schema.post('save', async (doc, next) => {
+  await StrategicSystem.findByIdAndUpdate(doc.strategicSystem, {
+    $push: { strategicPlans: doc._id },
+  })
+
+  next()
+})
 
 export default model('strategic-plans', schema)

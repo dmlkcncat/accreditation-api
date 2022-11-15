@@ -6,6 +6,7 @@ import StrategicGoalsRoutes from './strategicGoals'
 import StrategicActivityRoutes from './strategicActivity'
 import UserRoleRoutes from './userRole'
 import UserRoutes from './user'
+import StrategicSystem from './StrategicSystem'
 
 const router = Router()
 
@@ -15,5 +16,5 @@ router.use('/strategic-goals', StrategicGoalsRoutes)
 router.use('/strategic-activity', StrategicActivityRoutes)
 router.use('/user-role', UserRoleRoutes)
 router.use('/user', UserRoutes)
-
+router.use('/strategic-system', StrategicSystem)
 export default router

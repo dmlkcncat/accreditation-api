@@ -2,7 +2,11 @@ import { Schema, model } from 'mongoose'
 //periyot
 const schema = new Schema(
   {
-    title: String,
+    year: Number,
+    strategicSystem: {
+      type: Schema.Types.ObjectId,
+      ref: 'strategic-system',
+    },
   },
   {
     versionKey: false,
