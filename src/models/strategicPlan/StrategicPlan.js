@@ -23,7 +23,7 @@ const schema = new Schema(
 
 schema.post('save', async (doc, next) => {
   await StrategicSystem.findByIdAndUpdate(doc.strategicSystem, {
-    $push: { strategicPlans: doc._id },
+    $addToSet: { strategicPlans: doc._id },
   })
 
   next()

@@ -1,7 +1,5 @@
 import BaseService from './BaseService'
 import StrategicPlan from '../models/strategicPlan/StrategicPlan'
-// import StrategicPeriod from '../models/strategicPlan/StrategicPeriod'
-import StrategicSystem from '../models/strategicPlan/StrategicSystem'
 
 export default class StrategicPlanService extends BaseService {
   constructor() {
@@ -47,6 +45,10 @@ export default class StrategicPlanService extends BaseService {
       })
       .populate({
         path: 'strategicSystem',
+        populate: {
+          path: 'period',
+          select: 'year',
+        },
       })
   }
 
