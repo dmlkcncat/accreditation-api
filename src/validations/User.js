@@ -5,4 +5,10 @@ export const createValidation = Joi.object({
   mail: Joi.string().required(),
   telephone: Joi.string().required(),
   userRole: Joi.string().required(),
+  password: Joi.string().required(),
+})
+
+export const loginValidation = Joi.object({
+  mail: Joi.string().email().required(),
+  password: Joi.string().required(),
 })
