@@ -5,7 +5,10 @@ const schema = new Schema(
     title: String,
     performanceIndicator: String,
     performanceGoalCount: Number,
-    responsible: String,
+    responsible: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    },
     periodGoal: [
       {
         // Hangi yıla denk geldiği

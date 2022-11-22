@@ -35,12 +35,17 @@ export default class StrategicPlanService extends BaseService {
         path: 'strategicGoals',
         populate: {
           path: 'strategicActivities',
-          populate: {
-            path: 'periodGoal',
-            populate: {
-              path: 'strategicPeriod',
+          populate: [
+            {
+              path: 'periodGoal',
+              populate: {
+                path: 'strategicPeriod',
+              },
             },
-          },
+            {
+              path: 'responsible',
+            },
+          ],
         },
       })
       .populate({
