@@ -10,4 +10,8 @@ export default class UserService extends BaseService {
       path: 'userRole',
     })
   }
+
+  get(where = {}) {
+    return this.model.findOne(where).populate('userRole')
+  }
 }
