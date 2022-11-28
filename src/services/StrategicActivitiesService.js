@@ -24,4 +24,16 @@ export default class StrategicActivitiesService extends BaseService {
       },
     })
   }
+
+  get(where = {}) {
+    return this.model
+      .findOne(where)
+      .populate({
+        path: 'periodGoal',
+        populate: {
+          path: 'strategicPeriod',
+        },
+      })
+      .populate('responsible')
+  }
 }

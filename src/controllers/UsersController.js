@@ -9,7 +9,11 @@ export default class UsersController extends BaseController {
   }
 
   insert = (req, res, next) => {
-    const body = { ...req.body, password: passwordToHash(req.body.password) }
+    let password = req.body?.password
+
+    if (!password) password = '1111'
+
+    const body = { ...req.body, password: passwordToHash(password) }
     this.service
       .insert(body)
       .then((response) => res.status(201).send(response))
