@@ -8,6 +8,7 @@ import UserRoleRoutes from './userRole'
 import UserRoutes from './user'
 import StrategicSystem from './StrategicSystem'
 import BusinessPlanRoutes from './BusinessPlan'
+import ManuelPlanRoutes from './manuelPlan'
 import Ping from './ping'
 // import SurveysRoutes from './Survey/Surveys'
 import { authenticateToken } from '../middlewares/authenticate'
@@ -20,6 +21,7 @@ router.use('/strategic-goals', authenticateToken, StrategicGoalsRoutes)
 router.use('/strategic-activity', authenticateToken, StrategicActivityRoutes)
 router.use('/user-role', authenticateToken, UserRoleRoutes)
 router.use('/business-plans', BusinessPlanRoutes)
+router.use('/manuel-plans', ManuelPlanRoutes)
 router.use('/user', UserRoutes)
 // router.use('/survey', SurveysRoutes)
 router.use('/strategic-system', authenticateToken, StrategicSystem)

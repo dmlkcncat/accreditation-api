@@ -1,16 +1,12 @@
 import { Schema, model } from 'mongoose'
-//Faaliyet
+
 const schema = new Schema(
   {
+    title: String,
     date: Date,
     time: String,
     location: String,
     responsible: String,
-    activity: {
-      type: Schema.Types.ObjectId,
-      ref: 'strategic-activities',
-    },
-
     period: String,
     statu: Boolean,
   },
@@ -20,4 +16,4 @@ const schema = new Schema(
   }
 )
 
-export default model('business-plan', schema)
+export default model('manuel-plan', schema)
