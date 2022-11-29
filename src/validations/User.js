@@ -12,3 +12,7 @@ export const loginValidation = Joi.object({
   mail: Joi.string().email().required(),
   password: Joi.string().required(),
 })
+
+export const refreshTokenValidation = Joi.object({
+  refreshToken: Joi.string().required(),
+})
