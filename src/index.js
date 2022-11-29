@@ -34,4 +34,10 @@ app.listen(process.env.APP_PORT, () => {
   console.log('Sunucu ayağa kalktı...')
   app.use('/api', ApiRoutes)
   app.use(errorHandler)
+
+  app.use(express.static(path.join(__dirname, '../client')))
+
+  app.use('*', function (request, response) {
+    response.sendFile(path.resolve(__dirname, '../client', 'index.html'))
+  })
 })
