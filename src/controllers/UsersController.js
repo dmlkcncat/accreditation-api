@@ -2,6 +2,7 @@ import BaseController from './BaseController'
 import UsersService from '../services/UsersService'
 import ApiError from '../errors/ApiError'
 import { generateAccessToken, passwordToHash } from '../scripts/utils/helper'
+import RefreshToken from '../models/RefreshToken'
 
 export default class UsersController extends BaseController {
   constructor() {
@@ -44,15 +45,24 @@ export default class UsersController extends BaseController {
           return next(new ApiError('wrong password', 401))
         }
 
-        const accessToken = generateAccessToken(response.email)
+        const accessToken = generateAccessToken(response.mail)
+        const refreshToken = await RefreshToken.createToken(response)
+
         // eslint-disable-next-line no-unused-vars
         const { password, ...responseBody } = {
           ...response.toObject(),
-          tokens: { accessToken },
+          tokens: { accessToken, refreshToken },
         }
 
         return res.status(200).send(responseBody)
       })
+      .catch(next)
+  }
+
+  refreshToken = (req, res, next) => {
+    this.service
+      .refreshToken(req.body)
+      .then((response) => res.status(200).send(response))
       .catch(next)
   }
 }
