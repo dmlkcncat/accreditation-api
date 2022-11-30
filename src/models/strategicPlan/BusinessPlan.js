@@ -10,8 +10,10 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'strategic-activities',
     },
-
-    period: String,
+    period: {
+      type: Schema.Types.ObjectId,
+      ref: 'strategic-periods',
+    },
     statu: Boolean,
   },
   {
