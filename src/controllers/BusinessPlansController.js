@@ -13,6 +13,8 @@ export default class BusinessPlansController extends BaseController {
 
     if (req.query?.activity) filter.activity = req.query?.activity
 
+    if (req.query?.statu) filter.statu = req.query?.statu === 'true'
+
     this.service
       .list(filter)
       .then((response) => res.status(200).send(response))
