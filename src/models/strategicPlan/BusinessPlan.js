@@ -5,7 +5,10 @@ const schema = new Schema(
     date: Date,
     time: String,
     location: String,
-    responsible: String,
+    responsible: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    },
     activity: {
       type: Schema.Types.ObjectId,
       ref: 'strategic-activities',

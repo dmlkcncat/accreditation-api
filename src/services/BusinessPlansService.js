@@ -6,13 +6,23 @@ export default class BusinessPlanService extends BaseService {
     super(BusinessPlan)
   }
   list(where = {}) {
-    return this.model.find(where).populate({
-      path: 'activity',
-    })
+    return this.model
+      .find(where)
+      .populate({
+        path: 'activity',
+      })
+      .populate({
+        path: 'responsible',
+      })
   }
   get(where = {}) {
-    return this.model.findOne(where).populate({
-      path: 'activity',
-    })
+    return this.model
+      .findOne(where)
+      .populate({
+        path: 'activity',
+      })
+      .populate({
+        path: 'responsible',
+      })
   }
 }
