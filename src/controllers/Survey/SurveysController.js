@@ -1,8 +1,8 @@
-// import BaseController from './BaseController'
-// import SurveysService from '../services/Survey/SurveysService'
+import SurveysService from '../../services/Survey/SurveysService'
+import BaseController from '../BaseController'
 
-// export default class SurveysController extends BaseController {
-//   constructor() {
-//     super(new SurveysService())
-//   }
-// }
+export default class SurveysController extends BaseController {
+  constructor() {
+    super(new SurveysService())
+  }
+}

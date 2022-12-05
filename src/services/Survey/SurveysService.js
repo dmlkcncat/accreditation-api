@@ -1,8 +1,8 @@
-// import BaseService from './BaseService'
-// import Survey from '../models/survey/Survey'
+import Survey from '../../models/survey/Survey'
+import BaseService from '../BaseService'
 
-// export default class SurveysService extends BaseService {
-//   constructor() {
-//     super(Survey)
-//   }
-// }
+export default class SurveysService extends BaseService {
+  constructor() {
+    super(Survey)
+  }
+}

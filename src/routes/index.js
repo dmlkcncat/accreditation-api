@@ -10,8 +10,8 @@ import StrategicSystem from './StrategicSystem'
 import BusinessPlanRoutes from './BusinessPlan'
 import ManuelPlanRoutes from './manuelPlan'
 import Ping from './ping'
-// import SurveysRoutes from './Survey/Surveys'
 import { authenticateToken } from '../middlewares/authenticate'
+import SurveyRoutes from './Survey/survey'
 
 const router = Router()
 
@@ -23,8 +23,8 @@ router.use('/user-role', authenticateToken, UserRoleRoutes)
 router.use('/business-plans', BusinessPlanRoutes)
 router.use('/manuel-plans', ManuelPlanRoutes)
 router.use('/user', UserRoutes)
-// router.use('/survey', SurveysRoutes)
 router.use('/strategic-system', authenticateToken, StrategicSystem)
+router.use('/surveys', SurveyRoutes)
 
 router.use('/ping', authenticateToken, Ping)
 export default router
