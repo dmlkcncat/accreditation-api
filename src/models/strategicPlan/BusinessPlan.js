@@ -4,7 +4,7 @@ const schema = new Schema(
   {
     date: Date,
     time: String,
-    location: String,
+    title: String,
     responsible: {
       type: Schema.Types.ObjectId,
       ref: 'user',

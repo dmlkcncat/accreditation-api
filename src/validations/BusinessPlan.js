@@ -6,6 +6,6 @@ export const createValidation = Joi.object({
   responsible: Joi.string().required(),
   activity: Joi.string().required(),
   period: Joi.string().required(),
-  location: Joi.string(),
+  title: Joi.string(),
   statu: Joi.bool(),
 })
