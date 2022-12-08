@@ -15,6 +15,10 @@ export default class BusinessPlansController extends BaseController {
 
     if (req.query?.statu) filter.statu = req.query?.statu === 'true'
 
+    if (req.query?.fromnow) filter.date = { $gte: Date.now() }
+
+    if (req.query?.limit) filter.limit = req.query?.limit
+
     this.service
       .list(filter)
       .then((response) => res.status(200).send(response))

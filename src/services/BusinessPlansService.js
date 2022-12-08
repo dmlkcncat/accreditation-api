@@ -5,6 +5,7 @@ export default class BusinessPlanService extends BaseService {
   constructor() {
     super(BusinessPlan)
   }
+
   list(where = {}) {
     return this.model
       .find(where)
@@ -14,7 +15,10 @@ export default class BusinessPlanService extends BaseService {
       .populate({
         path: 'responsible',
       })
+      .sort({ date: 1, time: 1 })
+      .limit(where?.limit || 0)
   }
+
   get(where = {}) {
     return this.model
       .findOne(where)
