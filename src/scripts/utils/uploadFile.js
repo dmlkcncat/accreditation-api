@@ -4,8 +4,8 @@ const DIR = 'uploads/'
 
 export default async (file, name = false) => {
   if (!name) {
-    name = Date.now() + '-' + Math.round(Math.random() * 1e9)
-    name += path.extname(file.name)
+    const randomPrefix = Date.now() + '-' + Math.round(Math.random() * 1e9)
+    name = [randomPrefix, path.extname(file.name)].join('')
   }
 
   const filePath = DIR + name
