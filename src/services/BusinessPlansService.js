@@ -28,5 +28,8 @@ export default class BusinessPlanService extends BaseService {
       .populate({
         path: 'responsible',
       })
+      .populate({
+        path: 'proof',
+      })
   }
 }

@@ -18,6 +18,10 @@ const schema = new Schema(
       ref: 'strategic-periods',
     },
     statu: Boolean,
+    proof: {
+      type: Schema.Types.ObjectId,
+      ref: 'business-plan-proof',
+    },
   },
   {
     versionKey: false,
