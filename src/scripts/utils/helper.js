@@ -18,3 +18,5 @@ export const generateRefreshToken = (email) => {
     expiresIn: '1h',
   })
 }
+
+export const castArray = (value) => (Array.isArray(value) ? value : [value])
