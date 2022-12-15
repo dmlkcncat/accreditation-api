@@ -1,4 +1,7 @@
 export default class BaseService {
+  /**
+   * @param {import('mongoose').Model} model
+   */
   constructor(model) {
     this.model = model
   }
@@ -17,5 +20,9 @@ export default class BaseService {
 
   get(where = {}) {
     return this.model.findOne(where)
+  }
+
+  updateOne(filter, update) {
+    return this.model.findOneAndUpdate(filter, update, { new: true })
   }
 }
