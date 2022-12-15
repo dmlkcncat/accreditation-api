@@ -1,6 +1,7 @@
 import BaseController from './BaseController'
 import BusinessPlanProofService from '../services/BusinessPlanProofService'
 import uploadFile from '../scripts/utils/uploadFile'
+import { castArray } from '../scripts/utils/helper'
 
 export default class BusinessPlanProofController extends BaseController {
   constructor() {
@@ -8,12 +9,11 @@ export default class BusinessPlanProofController extends BaseController {
   }
 
   insert = async (req, res, next) => {
-    const files = req.files.fileList
+    const files = castArray(req.files.fileList)
+
     const filePathList = await Promise.all(files.map(async (file) => await uploadFile(file)))
 
     const data = { ...req.body, path: filePathList }
-
-    console.log(data)
 
     this.service
       .insert(data)
