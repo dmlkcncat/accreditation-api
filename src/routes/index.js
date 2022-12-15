@@ -27,7 +27,7 @@ router.use('/manuel-plans', ManuelPlanRoutes)
 router.use('/user', UserRoutes)
 router.use('/strategic-system', authenticateToken, StrategicSystem)
 router.use('/surveys', SurveyRoutes)
-router.use('/business-plan-proof', BusinessPlanProofRoutes)
+router.use('/business-plan-proof', authenticateToken, BusinessPlanProofRoutes)
 router.use('/accreditation', AccreditationRoutes)
 
 router.use('/ping', authenticateToken, Ping)

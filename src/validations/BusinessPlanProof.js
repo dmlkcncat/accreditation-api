@@ -6,5 +6,5 @@ export const createValidationBody = Joi.object({
 })
 
 export const createValidationFile = Joi.object({
-  path: Joi.any().required(),
-})
+  fileList: Joi.any(),
+}).allow(null)
