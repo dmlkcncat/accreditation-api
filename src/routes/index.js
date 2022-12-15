@@ -13,6 +13,7 @@ import Ping from './ping'
 import { authenticateToken } from '../middlewares/authenticate'
 import SurveyRoutes from './Survey/survey'
 import BusinessPlanProofRoutes from './BusinessPlanProof'
+import AccreditationRoutes from './Accreditation'
 
 const router = Router()
 
@@ -27,6 +28,7 @@ router.use('/user', UserRoutes)
 router.use('/strategic-system', authenticateToken, StrategicSystem)
 router.use('/surveys', SurveyRoutes)
 router.use('/business-plan-proof', BusinessPlanProofRoutes)
+router.use('/accreditation', AccreditationRoutes)
 
 router.use('/ping', authenticateToken, Ping)
 export default router
