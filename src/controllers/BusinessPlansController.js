@@ -24,4 +24,19 @@ export default class BusinessPlansController extends BaseController {
       .then((response) => res.status(200).send(response))
       .catch(next)
   }
+
+  complete = (req, res, next) => {
+    const filter = {
+      _id: req.body.businessPlan,
+    }
+
+    const update = {
+      statu: true,
+    }
+
+    this.service
+      .updateOne(filter, update)
+      .then((response) => res.status(200).send(response))
+      .catch(next)
+  }
 }

@@ -9,3 +9,7 @@ export const createValidation = Joi.object({
   title: Joi.string(),
   statu: Joi.bool(),
 })
+
+export const completeValidation = Joi.object({
+  businessPlan: Joi.string().required(),
+})
