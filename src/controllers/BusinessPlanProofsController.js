@@ -9,11 +9,15 @@ export default class BusinessPlanProofController extends BaseController {
   }
 
   insert = async (req, res, next) => {
-    const files = castArray(req.files.fileList)
+    let data = { ...req.body, path: [] }
 
-    const filePathList = await Promise.all(files.map(async (file) => await uploadFile(file)))
+    if (req?.files?.fileList) {
+      const files = castArray(req.files.fileList)
 
-    const data = { ...req.body, path: filePathList }
+      const filePathList = await Promise.all(files.map(async (file) => await uploadFile(file)))
+
+      data.path = filePathList
+    }
 
     this.service
       .insert(data)
