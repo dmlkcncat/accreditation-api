@@ -6,14 +6,14 @@ import StrategicGoalsRoutes from './strategicGoals'
 import StrategicActivityRoutes from './strategicActivity'
 import UserRoleRoutes from './userRole'
 import UserRoutes from './user'
-import StrategicSystem from './StrategicSystem'
-import BusinessPlanRoutes from './BusinessPlan'
+import StrategicSystem from './strategicSystem'
+import BusinessPlanRoutes from './businessPlan'
 import ManuelPlanRoutes from './manuelPlan'
 import Ping from './ping'
 import { authenticateToken } from '../middlewares/authenticate'
 import SurveyRoutes from './Survey/survey'
-import BusinessPlanProofRoutes from './BusinessPlanProof'
-import AccreditationRoutes from './Accreditation'
+import BusinessPlanProofRoutes from './businessPlanProof'
+import AccreditationRoutes from './accreditation'
 
 const router = Router()
 
