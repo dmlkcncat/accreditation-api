@@ -3,9 +3,13 @@ const schema = new Schema(
   {
     questionType: {
       type: String,
-      required: true,
       enum: ['text', 'select', 'rate'],
     },
+    question: {
+      type: Schema.Types.ObjectId,
+      refPath: 'questionType',
+    },
+    required: { type: Boolean },
   },
   {
     versionKey: false,

@@ -14,6 +14,7 @@ import { authenticateToken } from '../middlewares/authenticate'
 import SurveyRoutes from './Survey/survey'
 import BusinessPlanProofRoutes from './BusinessPlanProof'
 import AccreditationRoutes from './Accreditation'
+import LogoRoutes from './Survey/logo'
 
 const router = Router()
 
@@ -29,6 +30,7 @@ router.use('/strategic-system', authenticateToken, StrategicSystem)
 router.use('/surveys', SurveyRoutes)
 router.use('/business-plan-proof', BusinessPlanProofRoutes)
 router.use('/accreditation', AccreditationRoutes)
+router.use('/logos', LogoRoutes)
 
 router.use('/ping', authenticateToken, Ping)
 export default router
