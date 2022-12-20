@@ -5,6 +5,16 @@ const schema = new Schema(
     firstTitle: String,
     finishTitle: String,
     active: Boolean,
+    questions: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'question',
+      },
+    ],
+    logo: {
+      type: Schema.Types.ObjectId,
+      ref: 'logo',
+    },
   },
   {
     versionKey: false,
