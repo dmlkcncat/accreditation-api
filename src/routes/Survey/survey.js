@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import SurveysController from '../../controllers/Survey/SurveysController'
 import validate from '../../middlewares/validate'
-import { createValidation } from '../../validations/Survey/survey'
+import { createValidation } from '../../validations/Survey/Survey'
 
 const router = Router()
 const controller = new SurveysController()
