@@ -1,4 +1,6 @@
 import path from 'path'
+import address from 'address'
+import chalk from 'chalk'
 
 import express from 'express'
 import helmet from 'helmet'
@@ -30,8 +32,17 @@ app.use(cors())
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
 
-app.listen(process.env.APP_PORT, () => {
-  console.log('Sunucu ayağa kalktı...')
+const PORT = process.env.APP_PORT || 3000
+const HOST = process.env.APP_HOST || address.ip()
+
+app.listen(PORT, HOST, () => {
+  console.log(
+    [
+      chalk.green('➜ '),
+      chalk.bold('Sunucu ayağa kalktı') + '..',
+      chalk.blue(`http://${HOST}:${PORT}/`),
+    ].join(' ')
+  )
   app.use('/api', ApiRoutes)
   app.use(errorHandler)
 
