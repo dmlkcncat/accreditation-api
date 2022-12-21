@@ -16,3 +16,7 @@ export const loginValidation = Joi.object({
 export const refreshTokenValidation = Joi.object({
   refreshToken: Joi.string().required(),
 })
+
+export const avatarValidation = Joi.object({
+  photo: Joi.any(),
+})
