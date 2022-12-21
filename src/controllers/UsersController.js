@@ -68,7 +68,7 @@ export default class UsersController extends BaseController {
   }
 
   changeAvatar = async (req, res, next) => {
-    const newAvatarPath = await uploadFile(req.files.photo)
+    const newAvatarPath = await uploadFile(req.files.photo, false, 'avatars/')
 
     this.service
       .updateOne({ mail: req.user.name }, { avatar: newAvatarPath })
