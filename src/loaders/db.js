@@ -2,7 +2,7 @@ import Mongoose from 'mongoose'
 
 const db = Mongoose.connection
 
-db.once('open', () => {
+db.once('open', async () => {
   console.log('DB Bağlantısı Başarılıdır..')
 })
 
