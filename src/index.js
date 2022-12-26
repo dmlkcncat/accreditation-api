@@ -32,7 +32,7 @@ app.use(cors())
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')))
 
-const PORT = process.env.APP_PORT || 3000
+const PORT = process.env.APP_PORT || 3001
 const HOST = process.env.APP_HOST || address.ip()
 
 app.listen(PORT, HOST, () => {
