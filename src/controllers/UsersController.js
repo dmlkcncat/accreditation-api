@@ -3,6 +3,7 @@ import UsersService from '../services/UsersService'
 import ApiError from '../errors/ApiError'
 import { generateAccessToken, passwordToHash } from '../scripts/utils/helper'
 import RefreshToken from '../models/RefreshToken'
+import uploadFile from '../scripts/utils/uploadFile'
 
 export default class UsersController extends BaseController {
   constructor() {
@@ -62,6 +63,15 @@ export default class UsersController extends BaseController {
   refreshToken = (req, res, next) => {
     this.service
       .refreshToken(req.body)
+      .then((response) => res.status(200).send(response))
+      .catch(next)
+  }
+
+  changeAvatar = async (req, res, next) => {
+    const newAvatarPath = await uploadFile(req.files.photo, false, 'avatars/')
+
+    this.service
+      .updateOne({ mail: req.user.name }, { avatar: newAvatarPath })
       .then((response) => res.status(200).send(response))
       .catch(next)
   }

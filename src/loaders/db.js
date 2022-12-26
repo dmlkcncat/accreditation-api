@@ -1,9 +1,12 @@
 import Mongoose from 'mongoose'
+import seed from '../seeds'
 
 const db = Mongoose.connection
 
-db.once('open', () => {
+db.once('open', async () => {
   console.log('DB Bağlantısı Başarılıdır..')
+
+  // await seed()
 })
 
 const connectDB = async () => {

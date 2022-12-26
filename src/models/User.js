@@ -10,6 +10,10 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'user-role',
     },
+    avatar: {
+      type: String,
+      default: '/uploads/avatars/default.jpg',
+    },
   },
   {
     versionKey: false,
