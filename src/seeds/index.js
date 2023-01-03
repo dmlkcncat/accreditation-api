@@ -4,9 +4,9 @@ import acc from './acc'
 
 export default async () => {
   console.log('tohumluyorum')
-  await userRole()
+  // await userRole()
 
-  await user()
+  // await user()
 
   await acc()
 

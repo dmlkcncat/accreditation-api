@@ -5,8 +5,9 @@ import { createValidationBody, createValidationFile } from '../validations/Busin
 
 const router = Router()
 const controller = new BusinessPlanProofsController()
-
 router
+router
+  .get('/', controller.list)
   .route('/')
   .post(validate(createValidationBody), validate(createValidationFile, 'files'), controller.insert)
 
