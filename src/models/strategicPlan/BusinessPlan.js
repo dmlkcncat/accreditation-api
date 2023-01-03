@@ -2,6 +2,10 @@ import { Schema, model } from 'mongoose'
 //Faaliyet
 const schema = new Schema(
   {
+    planType: {
+      type: String,
+      enum: ['business', 'manuel'],
+    },
     date: Date,
     time: String,
     title: String,
@@ -13,10 +17,10 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'strategic-activities',
     },
-    period: {
-      type: Schema.Types.ObjectId,
-      ref: 'strategic-periods',
-    },
+    // period: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'strategic-periods',
+    // },
     statu: Boolean,
     proof: {
       type: Schema.Types.ObjectId,
