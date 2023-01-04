@@ -7,6 +7,12 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       default: null,
     },
+    businessPlanList: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'business-plan',
+      },
+    ],
   },
   {
     versionKey: false,

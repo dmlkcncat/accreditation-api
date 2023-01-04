@@ -31,5 +31,9 @@ export default class BusinessPlanService extends BaseService {
       .populate({
         path: 'proof',
       })
+      .populate({
+        path: 'accreditationList',
+        select: 'title',
+      })
   }
 }
