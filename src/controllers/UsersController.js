@@ -20,7 +20,7 @@ export default class UsersController extends BaseController {
     await sendEmail({
       to: req.body.mail,
       subject: 'Atsis Kullanıcı Hesabınız Oluşturuldu!',
-      text: newUserText(password),
+      html: newUserText(password),
     })
 
     const body = { ...req.body, password: passwordToHash(password) }
