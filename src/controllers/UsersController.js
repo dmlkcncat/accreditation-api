@@ -4,16 +4,24 @@ import ApiError from '../errors/ApiError'
 import { generateAccessToken, passwordToHash } from '../scripts/utils/helper'
 import RefreshToken from '../models/RefreshToken'
 import uploadFile from '../scripts/utils/uploadFile'
+import newUserText from '../email/newUserText'
+import sendEmail from '../scripts/sendEmail'
 
 export default class UsersController extends BaseController {
   constructor() {
     super(new UsersService())
   }
 
-  insert = (req, res, next) => {
+  insert = async (req, res, next) => {
     let password = req.body?.password
 
     if (!password) password = '1111'
+
+    await sendEmail({
+      to: req.body.mail,
+      subject: 'Atsis Kullanıcı Hesabınız Oluşturuldu!',
+      text: newUserText(password),
+    })
 
     const body = { ...req.body, password: passwordToHash(password) }
     this.service
