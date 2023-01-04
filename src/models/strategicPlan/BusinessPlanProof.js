@@ -9,6 +9,12 @@ const schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'business-plan',
     },
+    accreditationList: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'accreditation',
+      },
+    ],
   },
   {
     versionKey: false,

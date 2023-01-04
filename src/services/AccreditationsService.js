@@ -1,13 +1,21 @@
 import BaseService from './BaseService'
 import Accreditation from '../models/strategicPlan/Accreditation'
+import BusinessPlan from '../models/strategicPlan/BusinessPlan'
 
 export default class AddreditationsService extends BaseService {
   constructor() {
     super(Accreditation)
   }
 
-  async list(where = {}) {
-    const list = await this.model.find(where)
+  list(where = {}) {
+    return this.model.find(where).populate({
+      path: 'businessPlanList',
+      populate: 'proof',
+    })
+  }
+
+  async nestedList(where = {}) {
+    const list = await this.list(where)
 
     return this.nestedItems(list)
   }
@@ -23,11 +31,22 @@ export default class AddreditationsService extends BaseService {
 
     for (let x of item) {
       itemList.push({
-        _id: x._id,
-        title: x.title,
+        ...x.toObject(),
         children: this.nestedItems(items, x._id),
       })
     }
     return itemList
+  }
+
+  async addBusinessPlan(businessPlanId, accreditationIdList) {
+    await BusinessPlan.findOneAndUpdate(
+      { _id: businessPlanId },
+      { $push: { accreditationList: accreditationIdList } }
+    )
+
+    return this.model.updateMany(
+      { _id: { $in: accreditationIdList } },
+      { $push: { businessPlanList: businessPlanId } }
+    )
   }
 }

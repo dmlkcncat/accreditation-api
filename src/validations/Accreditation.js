@@ -13,3 +13,8 @@ export const createValidation = Joi.object({
     })
   ),
 })
+
+export const addBusinessPlanValidation = Joi.object({
+  businessPlanId: Joi.string().required(),
+  accreditationIdList: Joi.array().items(Joi.string().required()).required(),
+})
