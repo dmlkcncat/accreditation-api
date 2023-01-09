@@ -17,6 +17,10 @@ import BusinessPlanProofRoutes from './businessPlanProof'
 import AccreditationRoutes from './accreditation'
 import LogoRoutes from './Survey/logo'
 
+import ParticipantListRoutes from './participantList'
+
+import MemberRoutes from './member'
+
 const router = Router()
 
 router.use('/strategic-plans', authenticateToken, StrategicPlansRoutes)
@@ -32,6 +36,8 @@ router.use('/surveys', SurveyRoutes)
 router.use('/business-plan-proof', BusinessPlanProofRoutes)
 router.use('/accreditation', AccreditationRoutes)
 router.use('/logos', LogoRoutes)
+router.use('/member', MemberRoutes)
+router.use('/participant-list', ParticipantListRoutes)
 
 router.use('/ping', authenticateToken, Ping)
 export default router
