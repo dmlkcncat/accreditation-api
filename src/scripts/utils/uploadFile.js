@@ -13,5 +13,5 @@ export default async (file, name = false, subDir = '') => {
 
   await file.mv(fullPath)
 
-  return '/' + filePath
+  return filePath
 }

@@ -8,6 +8,7 @@ const controller = new StrategicPlanController()
 
 router.get('/', controller.list)
 router.get('/:id', controller.getById)
+router.get('/:id/export', controller.export)
 router.route('/').post(validate(createValidation), controller.insert)
 
 export default router
