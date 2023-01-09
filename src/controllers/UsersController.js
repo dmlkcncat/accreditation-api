@@ -83,4 +83,20 @@ export default class UsersController extends BaseController {
       .then((response) => res.status(200).send(response))
       .catch(next)
   }
+
+  changePassword = async (req, res, next) => {
+    const existingUser = await this.service.get({ mail: req.body.mail })
+
+    if (!existingUser) return next(new ApiError('user not found', 401))
+
+    console.log(existingUser)
+
+    const hashedPassword = passwordToHash(req.body.password)
+    if (existingUser.password !== hashedPassword) return next(new ApiError('wrong password', 401))
+
+    return this.service
+      .updateOne({ _id: existingUser._id }, { password: passwordToHash(req.body.newPassword) })
+      .then((response) => res.status(200).send(response))
+      .catch(next)
+  }
 }
