@@ -1,5 +1,5 @@
 import { connectDB } from './db'
 
-export default () => {
-  connectDB()
+export default async () => {
+  await connectDB()
 }
