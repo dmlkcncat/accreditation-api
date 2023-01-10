@@ -15,7 +15,6 @@ export default class AccreditationsController extends BaseController {
 
   addBusinessPlan = (req, res, next) => {
     const { businessPlanId, accreditationIdList } = req.body
-    console.log('controller body', req.body)
     this.service
       .addBusinessPlan(businessPlanId, accreditationIdList)
       .then((response) => res.status(200).send(response))

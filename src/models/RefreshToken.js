@@ -22,8 +22,6 @@ schema.statics.createToken = async function (user) {
     user: user._id,
   })
 
-  console.log(_object)
-
   const refreshToken = await _object.save()
 
   return refreshToken.token

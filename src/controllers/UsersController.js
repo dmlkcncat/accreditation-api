@@ -89,8 +89,6 @@ export default class UsersController extends BaseController {
 
     if (!existingUser) return next(new ApiError('user not found', 401))
 
-    console.log(existingUser)
-
     const hashedPassword = passwordToHash(req.body.password)
     if (existingUser.password !== hashedPassword) return next(new ApiError('wrong password', 401))
 
