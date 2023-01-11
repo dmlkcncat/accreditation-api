@@ -1,9 +1,10 @@
 import UserRole from '../models/UserRole'
 
 export default async () => {
-  const userRole = new UserRole({
-    title: 'annen',
-  })
-
-  await userRole.save()
+  await UserRole.insertMany([
+    { title: 'Yönetim' },
+    { title: 'Meclis' },
+    { title: 'Akreditasyon' },
+    { title: 'Personel' },
+  ])
 }
