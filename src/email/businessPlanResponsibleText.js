@@ -1,4 +1,4 @@
-export default ({ fullName, password }) => `<!doctype html>
+export default ({ fullName, createdAt, businessPlanName, date }) => `<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
@@ -187,7 +187,7 @@ export default ({ fullName, password }) => `<!doctype html>
                                         <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:32px;font-weight:bold;line-height:1;text-align:center;color:#555;">
-                                                Hesabınız oluşturuldu
+                                                İş Planı Sorumlu Ataması
                                             </div>
 
                                         </td>
@@ -207,7 +207,7 @@ export default ({ fullName, password }) => `<!doctype html>
                                         <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:center;color:#555;">
-                                                Sisteme giriş yapabileceğiniz kullanıcı hesabınız oluşturuldu.
+                                                ${createdAt} tarihinde oluşturulan,
                                             </div>
 
                                         </td>
@@ -217,53 +217,27 @@ export default ({ fullName, password }) => `<!doctype html>
                                         <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:center;color:#555;">
-                                                ${password} şifrenizi kullanarak giriş yapabilirsiniz.
+                                                ${date} tarihinde gerçekleşmesi planlanan,
                                             </div>
 
                                         </td>
                                     </tr>
 
+                                <tr>
+                                    <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+
+                                        <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:center;color:#555;">
+                                            "${businessPlanName}" adındaki iş planına sorumlu olarak atanmışsınızdır.
+                                        </div>
+
+                                    </td>
+                                </tr>
+
                                     <tr>
-                                        <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:20px;word-break:break-word;">
+                                        <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:center;color:#555;">
-                                                Giriş yapmak için aşağıdaki Giriş Yap butonuna tıklayınız.
-                                            </div>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td align="center" style="font-size:0px;padding:10px 25px;padding-top:30px;padding-bottom:40px;word-break:break-word;">
-
-                                            <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
-                                                <tr>
-                                                    <td align="center" bgcolor="#2F67F6" role="presentation" style="border:none;border-radius:3px;color:#ffffff;cursor:auto;padding:15px 25px;" valign="middle">
-                                                        <a href="https://atsis.com.tr" style="background:#2F67F6;color:#ffffff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;">
-                                                            Giriş Yap
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:0;word-break:break-word;">
-
-                                            <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:center;color:#555;">
-                                                Veya bağlantıyı kullanın:
-                                            </div>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;">
-
-                                            <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:22px;text-align:center;color:#555;">
-                                                <a href="https://atsis.com.tr" style="color:#2F67F6">https://atsis.com.tr</a>
+                                                
                                             </div>
 
                                         </td>

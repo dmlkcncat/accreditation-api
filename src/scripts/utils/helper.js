@@ -20,3 +20,13 @@ export const generateRefreshToken = (email) => {
 }
 
 export const castArray = (value) => (Array.isArray(value) ? value : [value])
+
+export const dateToString = (date) => {
+  return date.toLocaleDateString('tr-TR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
