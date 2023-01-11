@@ -1,10 +1,16 @@
 import { Schema, model } from 'mongoose'
 const schema = new Schema(
   {
-    memberList: [
+    participantList: [
       {
-        type: Schema.Types.ObjectId,
-        ref: 'member',
+        type: {
+          type: String,
+          enum: ['user', 'member'],
+        },
+        participant: {
+          type: Schema.Types.ObjectId,
+          refPath: 'participantList.type',
+        },
       },
     ],
     businessPlan: {

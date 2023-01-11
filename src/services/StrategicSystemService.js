@@ -13,8 +13,6 @@ export default class StrategiSystemService extends BaseService {
 
     const systemId = mongoose.Types.ObjectId()
 
-    console.log({ systemId })
-
     const periods = []
     for (let i = 0; i < 4; i++) {
       periods.push(

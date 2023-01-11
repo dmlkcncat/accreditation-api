@@ -13,6 +13,12 @@ export const loginValidation = Joi.object({
   password: Joi.string().required(),
 })
 
+export const changePasswordValidation = Joi.object({
+  mail: Joi.string().email().required(),
+  password: Joi.string().required(),
+  newPassword: Joi.string().required(),
+})
+
 export const refreshTokenValidation = Joi.object({
   refreshToken: Joi.string().required(),
 })

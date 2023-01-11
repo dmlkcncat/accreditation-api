@@ -7,6 +7,7 @@ import {
   loginValidation,
   refreshTokenValidation,
   avatarValidation,
+  changePasswordValidation,
 } from '../validations/User'
 
 const router = Router()
@@ -16,6 +17,7 @@ router.route('/').get(authenticateToken, controller.list)
 // router.route('/').post(controller.insert)
 router.route('/').post(validate(createValidation), controller.insert)
 router.route('/login').post(validate(loginValidation), controller.login)
+router.route('/change-password').post(validate(changePasswordValidation), controller.changePassword)
 router.route('/refresh-token').post(validate(refreshTokenValidation), controller.refreshToken)
 router
   .route('/avatar')
